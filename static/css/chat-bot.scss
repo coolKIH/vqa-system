@@ -1,0 +1,483 @@
+@import "variables";
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.chatContainer {
+  padding-bottom: $bottomUserInputHeight;
+  padding-top: 2.5rem;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  &:before {
+    content: 'AnswerBot';
+    display: block;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: 2.5em;
+    text-align: center;
+    position: absolute;
+    line-height: 2.5em;
+    font-size: 1.05em;
+    color: #999;
+    font-weight: 600;
+  }
+  @media all and (min-width: 760px) {
+    max-width: 680px;
+    height: 560px;
+    border-radius: 4px;
+    margin: auto;
+    box-shadow: 0 12px 60px rgba(0, 0, 0, 0.3);
+  }
+  @media all and (min-width: 850px) {
+    max-width: 838px;
+  }
+  @media all and (min-width: 1200px) {
+    height: 680px;
+  }
+  .chatFooter {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    .userInputContainer {
+      display: flex;
+      align-items: center;
+      height: $bottomUserInputHeight;
+      padding: 0 1rem;
+      border-top: 1px solid rgba(black, 0.12);
+      .textResponse {
+        flex: 1 1 auto;
+        border: 0;
+        background-color: transparent;
+        padding: 0.25rem 0.5rem;
+        margin-right: 0.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        &:focus {
+          outline: none;
+          border-bottom-color: $theme-primary;
+        }
+      }
+      .sendButton {
+        padding: 0 0.8em;
+        background-color: transparent;
+        border: 0;
+        color: $theme-primary;
+        font-weight: 500;
+        &:not(:last-of-type) {
+          margin-right: 0.25rem;
+        }
+        &.minor {
+          background-color: rgba($theme-minor, 0.5);
+          color: white;
+          border-radius: 6px;
+          &:hover {
+            background-color: rgba($theme-minor, 0.8);
+          }
+        }
+      }
+      .optionButton {
+        min-width: 100px;
+        margin: 0 0.5rem;
+      }
+      .pickers {
+        display: flex;
+        flex: 1 1 auto;
+        .pickerContainer {
+          display: flex;
+          align-items: center;
+          flex: 1 1 auto;
+          .label {
+            margin-right: 0.8rem;
+          }
+          .inputWrapper {
+            position: relative;
+            flex: 1 1 auto;
+            input {
+              padding: 0.1rem 0.5rem;
+              width: 100%;
+              border: 0;
+              cursor: pointer;
+              background-color: transparent;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+            }
+            &:not(:last-child) {
+              border-right: 1px solid rgba(0, 0, 0, 0.22);
+            }
+          }
+        }
+      }
+    }
+  }
+  .chatBox {
+    height: 100%;
+    overflow: auto;
+    padding: 0 1.2rem 0;
+    .sessions {
+      .session {
+        margin-bottom: 1.8rem;
+        strong {
+          font-weight: 600;
+        }
+        & > * {
+          margin: 0.65rem 0;
+        }
+        .sessionHeader {
+          padding: 0 0.15rem;
+          font-weight: 500;
+          color: #323232;
+        }
+        .bubble {
+          max-width: 60%;
+          @media all and (min-width: 900px) {
+            max-width: 50%;
+          }
+          @media all and (min-width: 1480px) {
+            max-width: 40%;
+          }
+          .bubbleContent {
+            border-radius: 1.2rem;
+            padding: 0.6rem 1rem;
+            display: inline-block;
+            text-align: left;
+            .minor {
+              color: #777;
+              font-weight: 300;
+            }
+          }
+        }
+        .lawListContainer {
+          background-color: #ede0ff;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          font-size: 13px;
+          max-width: 550px;
+          color: #141531;
+          .containerHeader {
+            padding: 0 0 0.6rem;
+            .ctrl {
+              user-select: none;
+              padding: 0 0.25rem 0.25rem;
+              &:before, &:after {
+                content: '';
+                display: table;
+                clear: both;
+              }
+              .ctrlItem {
+                color: #77797a;
+                display: inline-block;
+                &:not(:last-child) {
+                  margin-right: 0.8rem;
+                }
+
+                input[type='checkbox'] {
+                  margin-right: 4px;
+                }
+                &.options {
+                  float: right;
+                  .remark {
+                    margin-right: 0.25rem;
+                  }
+                  .optionGroup {
+                    display: inline-block;
+                    .option {
+                      display: inline-block;
+                      padding: 0 0.25rem;
+                      cursor: pointer;
+                      font-weight: 500;
+                      &:hover {
+                        text-decoration: underline;
+                      }
+                      &.active {
+                        color: $theme-primary;
+                        pointer-events: none;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .lawList {
+            max-height: 360px;
+            overflow: auto;
+            &.showFreeOnly {
+              ul {
+                li {
+                  &:not(.hasFreeConsult) {
+                    display: none;
+                  }
+                }
+              }
+            }
+            ul {
+              padding-left: 0;
+              list-style-type: none;
+              margin: 0;
+              li {
+                padding: 0.5rem 0.25rem;
+                position: relative;
+                &.isSelectable {
+                  padding-left: 48px;
+                }
+                .selectButton {
+                  display: inline-block;
+                  cursor: pointer;
+                  color: #c1c4fb;
+                  font-size: 32px;
+                  line-height: 32px;
+                  position: absolute;
+                  left: 0;
+                }
+                &:hover {
+                  .selectButton {
+                    color: inherit;
+                    &:hover {
+                      color: $theme-primary;
+                    }
+                  }
+                }
+                &:not(:last-child) {
+                  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+                }
+                &.selected {
+                  .selectButton {
+                    color: $theme-secondary;
+                  }
+                }
+                &.showAreas {
+                  .areas {
+                    display: block;
+                  }
+                }
+                .header {
+                  display: flex;
+                  padding: 0 3px 3px;
+                  .title {
+                    flex: 1 1 auto;
+                    color: inherit;
+                    text-decoration: none;
+                    line-height: 1.2;
+                    font-weight: 500;
+                  }
+                  a.title:hover {
+                    color: $link-color;
+                    text-decoration: underline;
+                  }
+                  .featured {
+                    flex: 0 0 auto;
+                    padding-left: 0.5rem;
+                    font-size: 12px;
+                    color: #727272;
+                    & > div {
+                      padding: 0 0.8rem 0 0.5rem;
+                      margin: 0 0 0.08rem;
+                      border-radius: 2px;
+                    }
+                    .lawyers {
+                      background-color: darkblue;
+                      color: #f0f0f0;
+                      border-radius: 2px;
+                    }
+                    .freeCons {
+                      background-color: #f5f500;
+                      color: #323232;
+                    }
+                  }
+                }
+                .areas {
+                  margin: 5px 0;
+                  display: none;
+                  &.showMore {
+                    .area.asMore {
+                      display: inline-block;
+                    }
+                  }
+                  .area {
+                    display: inline-block;
+                    background-color: #f9d086;
+                    padding: 2px 8px;
+                    margin: 3px 6px 3px 0;
+                    font-size: 12px;
+                    border-radius: 999px;
+                    color: #323232;
+                    &.asMore {
+                      display: none;
+                    }
+                  }
+                }
+                .reachMethods {
+                  display: flex;
+                  font-size: 12px;
+                  color: #525556;
+                  & > * {
+                    width: 50%;
+                  }
+                  i {
+                    color: #777;
+                    margin-right: 0.25rem;
+                  }
+                  & > * {
+                    padding: 6px;
+                  }
+                  .contactMethods {
+                    border-right: 1px dashed rgba(0, 0, 0, 0.1);
+                    & > * {
+                      display: inline-block;
+                      line-height: 1.2;
+                      word-break: break-all;
+                      &:not(:last-child) {
+                        padding-right: 0.5rem;
+                      }
+                    }
+                  }
+                  .address {
+                    flex: 1 1 auto;
+                    line-height: 1.1;
+                  }
+                }
+                .clickable {
+                  font-size: 12px;
+                  cursor: pointer;
+                  white-space: nowrap;
+                  padding: 2px 8px;
+                  color: #525252;
+                }
+              }
+            }
+          }
+        }
+        .options {
+          border-radius: 6px;
+        }
+        .optionButton {
+          text-transform: uppercase;
+          padding: 0.35rem 0.8rem;
+          border-radius: 999px;
+          background-color: lighten($theme-secondary, 10);
+          color: darken($theme-secondary, 40);
+          margin: 0.25rem;
+          border: 0;
+          font-weight: 600;
+          font-size: 12px;
+          &.minor {
+            background-color: rgba($theme-minor, 0.5);
+            color: white;
+            &:hover {
+              background-color: rgba($theme-minor, 0.8);
+              color: white;
+            }
+          }
+          &[disabled] {
+            background-color: #ccc;
+            color: white;
+            pointer-events: none;
+            .minor {
+              font-weight: 400;
+              color: #f0f0f0;
+            }
+            &.selected {
+              background-color: $theme-secondary;
+              color: white;
+            }
+          }
+          &:hover {
+            color: darken($theme-secondary, 16);
+          }
+        }
+        .selectables {
+          margin: 0.25rem;
+        }
+        .selectable {
+          display: block;
+          color: #525252;
+          padding: 0.5rem 0.5rem;
+          border: 0;
+          margin: 3px;
+          background-color: #f0f0f0;
+          border-radius: 2px;
+          &:hover {
+            background-color: #e0e0e0;
+          }
+          &.selected {
+            background-color: #ddd;
+            &:hover {
+              background-color: #ddd;
+            }
+          }
+          input {
+            margin-right: 0.25rem;
+          }
+          &[disabled] {
+            pointer-events: none;
+          }
+        }
+        .imgContainer {
+          display: inline-block;
+          max-width: 50%;
+          padding: 1em 1.1em;
+          border: 1px solid #e0e0e0;
+          background-color: #f0f0f0;
+          border-radius: 5px;
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+        &.oppo {
+          .bubble {
+            &.ans {
+              .bubbleContent {
+                background-color: #70d60a;
+                color: white;
+                font-weight: 600;
+              }
+            }
+            .bubbleContent {
+              background-color: #ececec;
+              color: #424242;
+              transform-origin: left center;
+            }
+          }
+        }
+        &.self {
+          text-align: right;
+          .bubble {
+            margin-left: auto;
+            .bubbleContent {
+              background-color: $theme-primary;
+              color: white;
+              transform-origin: right center;
+            }
+          }
+          .imgContainer {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+.silentButton {
+  white-space: nowrap;
+  display: inline-block;
+  cursor: pointer;
+  color: $link-color;
+  &:hover {
+    text-decoration: underline;
+  }
+  &[disabled] {
+    pointer-events: none;
+    color: #777;
+  }
+}
+
+.picker {
+  font-size: 14px;
+}

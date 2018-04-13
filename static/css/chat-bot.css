@@ -1,0 +1,363 @@
+body {
+  font-family: "Poppins", sans-serif; }
+
+.chatContainer {
+  padding-bottom: 60px;
+  padding-top: 2.5rem;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: 0; }
+  .chatContainer:before {
+    content: 'AnswerBot';
+    display: block;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: 2.5em;
+    text-align: center;
+    position: absolute;
+    line-height: 2.5em;
+    font-size: 1.05em;
+    color: #999;
+    font-weight: 600; }
+  @media all and (min-width: 760px) {
+    .chatContainer {
+      max-width: 680px;
+      height: 560px;
+      border-radius: 4px;
+      margin: auto;
+      box-shadow: 0 12px 60px rgba(0, 0, 0, 0.3); } }
+  @media all and (min-width: 850px) {
+    .chatContainer {
+      max-width: 838px; } }
+  @media all and (min-width: 1200px) {
+    .chatContainer {
+      height: 680px; } }
+  .chatContainer .chatFooter {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+    .chatContainer .chatFooter .userInputContainer {
+      display: flex;
+      align-items: center;
+      height: 60px;
+      padding: 0 1rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.12); }
+      .chatContainer .chatFooter .userInputContainer .textResponse {
+        flex: 1 1 auto;
+        border: 0;
+        background-color: transparent;
+        padding: 0.25rem 0.5rem;
+        margin-right: 0.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+        .chatContainer .chatFooter .userInputContainer .textResponse:focus {
+          outline: none;
+          border-bottom-color: #2c68f5; }
+      .chatContainer .chatFooter .userInputContainer .sendButton {
+        padding: 0 0.8em;
+        background-color: transparent;
+        border: 0;
+        color: #2c68f5;
+        font-weight: 500; }
+        .chatContainer .chatFooter .userInputContainer .sendButton:not(:last-of-type) {
+          margin-right: 0.25rem; }
+        .chatContainer .chatFooter .userInputContainer .sendButton.minor {
+          background-color: rgba(220, 0, 0, 0.5);
+          color: white;
+          border-radius: 6px; }
+          .chatContainer .chatFooter .userInputContainer .sendButton.minor:hover {
+            background-color: rgba(220, 0, 0, 0.8); }
+      .chatContainer .chatFooter .userInputContainer .optionButton {
+        min-width: 100px;
+        margin: 0 0.5rem; }
+      .chatContainer .chatFooter .userInputContainer .pickers {
+        display: flex;
+        flex: 1 1 auto; }
+        .chatContainer .chatFooter .userInputContainer .pickers .pickerContainer {
+          display: flex;
+          align-items: center;
+          flex: 1 1 auto; }
+          .chatContainer .chatFooter .userInputContainer .pickers .pickerContainer .label {
+            margin-right: 0.8rem; }
+          .chatContainer .chatFooter .userInputContainer .pickers .pickerContainer .inputWrapper {
+            position: relative;
+            flex: 1 1 auto; }
+            .chatContainer .chatFooter .userInputContainer .pickers .pickerContainer .inputWrapper input {
+              padding: 0.1rem 0.5rem;
+              width: 100%;
+              border: 0;
+              cursor: pointer;
+              background-color: transparent;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.42); }
+            .chatContainer .chatFooter .userInputContainer .pickers .pickerContainer .inputWrapper:not(:last-child) {
+              border-right: 1px solid rgba(0, 0, 0, 0.22); }
+  .chatContainer .chatBox {
+    height: 100%;
+    overflow: auto;
+    padding: 0 1.2rem 0; }
+    .chatContainer .chatBox .sessions .session {
+      margin-bottom: 1.8rem; }
+      .chatContainer .chatBox .sessions .session strong {
+        font-weight: 600; }
+      .chatContainer .chatBox .sessions .session > * {
+        margin: 0.65rem 0; }
+      .chatContainer .chatBox .sessions .session .sessionHeader {
+        padding: 0 0.15rem;
+        font-weight: 500;
+        color: #323232; }
+      .chatContainer .chatBox .sessions .session .bubble {
+        max-width: 60%; }
+        @media all and (min-width: 900px) {
+          .chatContainer .chatBox .sessions .session .bubble {
+            max-width: 50%; } }
+        @media all and (min-width: 1480px) {
+          .chatContainer .chatBox .sessions .session .bubble {
+            max-width: 40%; } }
+        .chatContainer .chatBox .sessions .session .bubble .bubbleContent {
+          border-radius: 1.2rem;
+          padding: 0.6rem 1rem;
+          display: inline-block;
+          text-align: left; }
+          .chatContainer .chatBox .sessions .session .bubble .bubbleContent .minor {
+            color: #777;
+            font-weight: 300; }
+      .chatContainer .chatBox .sessions .session .lawListContainer {
+        background-color: #ede0ff;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-size: 13px;
+        max-width: 550px;
+        color: #141531; }
+        .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader {
+          padding: 0 0 0.6rem; }
+          .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl {
+            user-select: none;
+            padding: 0 0.25rem 0.25rem; }
+            .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl:before, .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl:after {
+              content: '';
+              display: table;
+              clear: both; }
+            .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl .ctrlItem {
+              color: #77797a;
+              display: inline-block; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl .ctrlItem:not(:last-child) {
+                margin-right: 0.8rem; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl .ctrlItem input[type='checkbox'] {
+                margin-right: 4px; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl .ctrlItem.options {
+                float: right; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl .ctrlItem.options .remark {
+                  margin-right: 0.25rem; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl .ctrlItem.options .optionGroup {
+                  display: inline-block; }
+                  .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl .ctrlItem.options .optionGroup .option {
+                    display: inline-block;
+                    padding: 0 0.25rem;
+                    cursor: pointer;
+                    font-weight: 500; }
+                    .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl .ctrlItem.options .optionGroup .option:hover {
+                      text-decoration: underline; }
+                    .chatContainer .chatBox .sessions .session .lawListContainer .containerHeader .ctrl .ctrlItem.options .optionGroup .option.active {
+                      color: #2c68f5;
+                      pointer-events: none; }
+        .chatContainer .chatBox .sessions .session .lawListContainer .lawList {
+          max-height: 360px;
+          overflow: auto; }
+          .chatContainer .chatBox .sessions .session .lawListContainer .lawList.showFreeOnly ul li:not(.hasFreeConsult) {
+            display: none; }
+          .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul {
+            padding-left: 0;
+            list-style-type: none;
+            margin: 0; }
+            .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li {
+              padding: 0.5rem 0.25rem;
+              position: relative; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li.isSelectable {
+                padding-left: 48px; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .selectButton {
+                display: inline-block;
+                cursor: pointer;
+                color: #c1c4fb;
+                font-size: 32px;
+                line-height: 32px;
+                position: absolute;
+                left: 0; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li:hover .selectButton {
+                color: inherit; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li:hover .selectButton:hover {
+                  color: #2c68f5; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li:not(:last-child) {
+                border-bottom: 3px solid rgba(0, 0, 0, 0.1); }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li.selected .selectButton {
+                color: #90f52c; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li.showAreas .areas {
+                display: block; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .header {
+                display: flex;
+                padding: 0 3px 3px; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .header .title {
+                  flex: 1 1 auto;
+                  color: inherit;
+                  text-decoration: none;
+                  line-height: 1.2;
+                  font-weight: 500; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .header a.title:hover {
+                  color: #541b8b;
+                  text-decoration: underline; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .header .featured {
+                  flex: 0 0 auto;
+                  padding-left: 0.5rem;
+                  font-size: 12px;
+                  color: #727272; }
+                  .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .header .featured > div {
+                    padding: 0 0.8rem 0 0.5rem;
+                    margin: 0 0 0.08rem;
+                    border-radius: 2px; }
+                  .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .header .featured .lawyers {
+                    background-color: darkblue;
+                    color: #f0f0f0;
+                    border-radius: 2px; }
+                  .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .header .featured .freeCons {
+                    background-color: #f5f500;
+                    color: #323232; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .areas {
+                margin: 5px 0;
+                display: none; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .areas.showMore .area.asMore {
+                  display: inline-block; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .areas .area {
+                  display: inline-block;
+                  background-color: #f9d086;
+                  padding: 2px 8px;
+                  margin: 3px 6px 3px 0;
+                  font-size: 12px;
+                  border-radius: 999px;
+                  color: #323232; }
+                  .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .areas .area.asMore {
+                    display: none; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .reachMethods {
+                display: flex;
+                font-size: 12px;
+                color: #525556; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .reachMethods > * {
+                  width: 50%; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .reachMethods i {
+                  color: #777;
+                  margin-right: 0.25rem; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .reachMethods > * {
+                  padding: 6px; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .reachMethods .contactMethods {
+                  border-right: 1px dashed rgba(0, 0, 0, 0.1); }
+                  .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .reachMethods .contactMethods > * {
+                    display: inline-block;
+                    line-height: 1.2;
+                    word-break: break-all; }
+                    .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .reachMethods .contactMethods > *:not(:last-child) {
+                      padding-right: 0.5rem; }
+                .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .reachMethods .address {
+                  flex: 1 1 auto;
+                  line-height: 1.1; }
+              .chatContainer .chatBox .sessions .session .lawListContainer .lawList ul li .clickable {
+                font-size: 12px;
+                cursor: pointer;
+                white-space: nowrap;
+                padding: 2px 8px;
+                color: #525252; }
+      .chatContainer .chatBox .sessions .session .options {
+        border-radius: 6px; }
+      .chatContainer .chatBox .sessions .session .optionButton {
+        text-transform: uppercase;
+        padding: 0.35rem 0.8rem;
+        border-radius: 999px;
+        background-color: #aaf75d;
+        color: #2a5104;
+        margin: 0.25rem;
+        border: 0;
+        font-weight: 600;
+        font-size: 12px; }
+        .chatContainer .chatBox .sessions .session .optionButton.minor {
+          background-color: rgba(220, 0, 0, 0.5);
+          color: white; }
+          .chatContainer .chatBox .sessions .session .optionButton.minor:hover {
+            background-color: rgba(220, 0, 0, 0.8);
+            color: white; }
+        .chatContainer .chatBox .sessions .session .optionButton[disabled] {
+          background-color: #ccc;
+          color: white;
+          pointer-events: none; }
+          .chatContainer .chatBox .sessions .session .optionButton[disabled] .minor {
+            font-weight: 400;
+            color: #f0f0f0; }
+          .chatContainer .chatBox .sessions .session .optionButton[disabled].selected {
+            background-color: #90f52c;
+            color: white; }
+        .chatContainer .chatBox .sessions .session .optionButton:hover {
+          color: #67c609; }
+      .chatContainer .chatBox .sessions .session .selectables {
+        margin: 0.25rem; }
+      .chatContainer .chatBox .sessions .session .selectable {
+        display: block;
+        color: #525252;
+        padding: 0.5rem 0.5rem;
+        border: 0;
+        margin: 3px;
+        background-color: #f0f0f0;
+        border-radius: 2px; }
+        .chatContainer .chatBox .sessions .session .selectable:hover {
+          background-color: #e0e0e0; }
+        .chatContainer .chatBox .sessions .session .selectable.selected {
+          background-color: #ddd; }
+          .chatContainer .chatBox .sessions .session .selectable.selected:hover {
+            background-color: #ddd; }
+        .chatContainer .chatBox .sessions .session .selectable input {
+          margin-right: 0.25rem; }
+        .chatContainer .chatBox .sessions .session .selectable[disabled] {
+          pointer-events: none; }
+      .chatContainer .chatBox .sessions .session .imgContainer {
+        display: inline-block;
+        max-width: 50%;
+        padding: 1em 1.1em;
+        border: 1px solid #e0e0e0;
+        background-color: #f0f0f0;
+        border-radius: 5px; }
+        .chatContainer .chatBox .sessions .session .imgContainer img {
+          max-width: 100%;
+          height: auto; }
+      .chatContainer .chatBox .sessions .session.oppo .bubble.ans .bubbleContent {
+        background-color: #70d60a;
+        color: white;
+        font-weight: 600; }
+      .chatContainer .chatBox .sessions .session.oppo .bubble .bubbleContent {
+        background-color: #ececec;
+        color: #424242;
+        transform-origin: left center; }
+      .chatContainer .chatBox .sessions .session.self {
+        text-align: right; }
+        .chatContainer .chatBox .sessions .session.self .bubble {
+          margin-left: auto; }
+          .chatContainer .chatBox .sessions .session.self .bubble .bubbleContent {
+            background-color: #2c68f5;
+            color: white;
+            transform-origin: right center; }
+        .chatContainer .chatBox .sessions .session.self .imgContainer {
+          margin-left: auto; }
+
+.silentButton {
+  white-space: nowrap;
+  display: inline-block;
+  cursor: pointer;
+  color: #541b8b; }
+  .silentButton:hover {
+    text-decoration: underline; }
+  .silentButton[disabled] {
+    pointer-events: none;
+    color: #777; }
+
+.picker {
+  font-size: 14px; }
+
+/*# sourceMappingURL=chat-bot.css.map */

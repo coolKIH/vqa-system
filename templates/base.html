@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <script defer src="/static/js/vendor/fontawesome-all.js"></script>
+    <link rel="stylesheet" href="/css/vendor/pure-min.css">
+    <link rel="stylesheet" href="/css/vendor/grids-responsive-min.css">
+    <link rel="stylesheet" href="/css/vendor/buttons-min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    {% block head %}{% endblock %}
+</head>
+<body>
+<div class="navigation" id="navigation"></div>
+{% block body %}{% endblock %}
+<script src="/js/vendor/jquery-3.3.1.min.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

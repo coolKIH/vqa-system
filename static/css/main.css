@@ -1,0 +1,62 @@
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+html, body {
+  height: 100%; }
+
+html {
+  box-sizing: border-box; }
+
+body {
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+  background: #e0e0e0 url(/img/gplaypattern.png) repeat; }
+
+.button-xsmall {
+  font-size: 70%; }
+
+.button-small {
+  font-size: 85%; }
+
+.button-large {
+  font-size: 110%; }
+
+.button-xlarge {
+  font-size: 125%; }
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
+
+.button-success {
+  background: #1cb841;
+  /* this is a green */ }
+
+.button-error {
+  background: #ca3c3c;
+  /* this is a maroon */ }
+
+.button-warning {
+  background: #df7514;
+  /* this is an orange */ }
+
+.button-secondary {
+  background: #42b8dd;
+  /* this is a light blue */ }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes scaleToFullSize {
+  0% {
+    transform: scale(0); }
+  100% {
+    transform: scale(1); } }
+
+/*# sourceMappingURL=main.css.map */
